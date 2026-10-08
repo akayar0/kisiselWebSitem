@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Copy, Check, ArrowUp, Terminal, Heart } from 'lucide-react';
+import { Mail, Copy, Check, ArrowUp } from 'lucide-react';
 
 export const Footer = ({ personal }) => {
   const [copied, setCopied] = useState(false);
@@ -75,51 +75,7 @@ export const Footer = ({ personal }) => {
             <span>{personal.name} • {new Date().getFullYear()}</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href={personal.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              GitHub
-            </a>
-            <span>•</span>
-            <a
-              href={personal.linkedinUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-[#0a66c2] transition-colors"
-            >
-              LinkedIn
-            </a>
-            {personal.instagramUrl && (
-              <>
-                <span>•</span>
-                <a
-                  href={personal.instagramUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#E4405F] transition-colors"
-                >
-                  Instagram
-                </a>
-              </>
-            )}
-            {personal.xUrl && (
-              <>
-                <span>•</span>
-                <a
-                  href={personal.xUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  X (Twitter)
-                </a>
-              </>
-            )}
-            <span>•</span>
+          <div className="flex items-center gap-4">
             <button
               onClick={scrollToTop}
               className="flex items-center gap-1 hover:text-cyan-400 transition-colors"

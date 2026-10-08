@@ -14,13 +14,13 @@ export const portfolioData = {
     linkedinUrl: "https://www.linkedin.com/in/ahmet-kayar-77a308290/",
     instagramUrl: "https://www.instagram.com/akayarr_/",
     xUrl: "https://x.com/akayar_0",
-    cvUrl: "#", // CV dosyanızın linki veya '/cv.pdf'
+    cvUrl: "/cv/Ahmet_Kayar_CV.pdf", // CV dosyasının linki
     avatarUrl: "/profile.jpg", // Kendi fotoğrafınızı değiştirmek için public/profile.jpg dosyasını değiştirebilirsiniz
     bio: "Bilgisayar Mühendisliği son sınıf öğrencisiyim. Derin öğrenme, LLM & RAG mimarileri ve modern yazılım ekosisteminde ölçeklenebilir uygulamalar geliştirme tutkusuna sahibim.",
     stats: [
-      { label: "Tamamlanan Projeler", value: "5" },
-      { label: "GitHub Katkıları", value: "12" },
-      { label: "Sertifikalar & Başarılar", value: "6" },
+      { label: "Tamamlanan Projeler", value: "5+" },
+      { label: "GitHub Katkıları", value: "12+" },
+      { label: "Sertifikalar & Başarılar", value: "6+" },
       { label: "AGNO / GPA", value: "3.15 / 4" }
     ]
   },

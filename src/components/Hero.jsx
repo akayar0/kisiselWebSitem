@@ -1,6 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Instagram, Mail, FileText, ArrowRight, Sparkles, MapPin, CheckCircle2, GitCommit } from 'lucide-react';
-import { XIcon } from './icons/XIcon';
+import { Mail, FileText, ArrowRight, Sparkles, MapPin, CheckCircle2, GitCommit } from 'lucide-react';
 
 export const Hero = ({ personal }) => {
   // Mock contribution data for GitHub-style activity graph
@@ -83,60 +82,12 @@ export const Hero = ({ personal }) => {
 
               <a
                 href={personal.cvUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                download
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 border border-slate-700/80 text-slate-200 font-medium text-sm hover:border-slate-500 hover:bg-slate-800 transition-all"
               >
                 <FileText size={16} className="text-cyan-400" />
                 <span>CV / Özgeçmiş</span>
               </a>
-
-              <div className="flex items-center gap-2 ml-1">
-                <a
-                  href={personal.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-600 transition-all"
-                  aria-label="GitHub Profili"
-                  title="GitHub Profili"
-                >
-                  <Github size={18} />
-                </a>
-                <a
-                  href={personal.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-[#0a66c2] hover:border-[#0a66c2]/50 transition-all"
-                  aria-label="LinkedIn Profili"
-                  title="LinkedIn Profili"
-                >
-                  <Linkedin size={18} />
-                </a>
-                {personal.instagramUrl && (
-                  <a
-                    href={personal.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-[#E4405F] hover:border-[#E4405F]/50 transition-all"
-                    aria-label="Instagram Profili"
-                    title="Instagram Profili"
-                  >
-                    <Instagram size={18} />
-                  </a>
-                )}
-                {personal.xUrl && (
-                  <a
-                    href={personal.xUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-500 transition-all"
-                    aria-label="X (Twitter) Profili"
-                    title="X (Twitter) Profili"
-                  >
-                    <XIcon size={18} />
-                  </a>
-                )}
-              </div>
             </div>
 
             {/* Highlight Metric Counters */}
