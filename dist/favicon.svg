@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="ak-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer glowing background/border -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#ak-grad)" />
+  <!-- Inner dark card container -->
+  <rect x="5" y="5" width="54" height="54" rx="13" fill="#0b0f17" />
+  <!-- Modern Ultra-Bold AK Typography -->
+  <text x="32" y="44" font-family="'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif" font-size="32" font-weight="900" text-anchor="middle" letter-spacing="-1.5">
+    <tspan fill="#ffffff">A</tspan><tspan fill="#22d3ee">K</tspan>
+  </text>
+</svg>
