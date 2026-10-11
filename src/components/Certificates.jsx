@@ -11,15 +11,15 @@ export const Certificates = ({ certificates }) => {
         
         {/* Header */}
         <div ref={header.ref} className={`reveal reveal-up ${header.isVisible ? 'is-visible' : ''}`}>
-          <div className="flex items-center gap-2 text-cyan-400 font-mono text-sm uppercase tracking-wider mb-2">
+          <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-mono text-sm uppercase tracking-wider mb-2">
             <Award size={16} />
             <span>Sürekli Gelişim & Başarılar</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
             Sertifikalar & Lisanslar
           </h2>
-          <p className="text-slate-400 max-w-2xl text-base mb-12">
-            Yetkinliklerimi pekiştirmek için tamamladığım küresel sertifika programları ve akademik destekler.
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-base mb-12">
+            Yetkinliklerimi pekiştirmek için tamamladığım sertifika programları ve akademik destekler.
           </p>
         </div>
 
@@ -46,14 +46,14 @@ export const Certificates = ({ certificates }) => {
               <div>
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <div className="flex items-start gap-3">
-                    <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 shrink-0 mt-0.5">
+                    <div className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20 shrink-0 mt-0.5">
                       <Award size={20} />
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-white hover:text-cyan-300 transition-colors">
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors">
                         {cert.title}
                       </h3>
-                      <p className="text-sm font-medium text-slate-300 mt-0.5">
+                      <p className="text-sm font-medium text-slate-600 dark:text-slate-300 mt-0.5">
                         {cert.issuer}
                       </p>
                     </div>
@@ -64,7 +64,7 @@ export const Certificates = ({ certificates }) => {
                       href={cert.credentialUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-1.5 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 rounded-md transition-colors"
+                      className="p-1.5 text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md transition-colors"
                       title="Sertifikayı Görüntüle"
                     >
                       <ExternalLink size={16} />
@@ -72,18 +72,18 @@ export const Certificates = ({ certificates }) => {
                   )}
                 </div>
 
-                <div className="flex items-center gap-1.5 text-xs font-mono text-slate-400 my-3 pl-11">
-                  <Calendar size={13} className="text-slate-500" />
+                <div className="flex items-center gap-1.5 text-xs font-mono text-slate-500 dark:text-slate-400 my-3 pl-11">
+                  <Calendar size={13} className="text-slate-400 dark:text-slate-500" />
                   <span>Veriliş Tarihi: {cert.date}</span>
                 </div>
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80 mt-2">
+              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800/80 mt-2">
                 {cert.tags.map((tag, tIdx) => (
                   <span
                     key={tIdx}
-                    className="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800"
+                    className="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
                   >
                     {tag}
                   </span>

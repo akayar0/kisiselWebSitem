@@ -15,15 +15,15 @@ export const GoalsInterests = ({ goals, interests }) => {
           {/* Left Column: Goals & Vision (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             <div ref={goalsHeader.ref} className={`reveal reveal-left ${goalsHeader.isVisible ? 'is-visible' : ''}`}>
-              <div className="flex items-center gap-2 text-cyan-400 font-mono text-sm uppercase tracking-wider mb-2">
+              <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-mono text-sm uppercase tracking-wider mb-2">
                 <Target size={16} />
                 <span>Kariyer Vizyonu</span>
               </div>
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
                 Hedefler & Yol Haritası
               </h2>
-              <p className="text-slate-400 text-sm">
-                Sektörde ve yapay zeka alanında kendime çizdiğim kısa ve uzun vadeli gelişim hedeflerim.
+              <p className="text-slate-600 dark:text-slate-400 text-sm">
+                Sektörde ve yapay zeka alanında kendime çizdiğim kısa veya uzun vadeli gelişim hedeflerim.
               </p>
             </div>
 
@@ -31,7 +31,7 @@ export const GoalsInterests = ({ goals, interests }) => {
               {goals.map((goal, idx) => (
                 <div
                   key={idx}
-                  className="glass-card rounded-2xl p-6 border border-slate-800/80"
+                  className="glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-800/80"
                   style={{ opacity: 0, transform: 'translateX(-36px)' }}
                   ref={el => {
                     if (!el) return;
@@ -46,15 +46,15 @@ export const GoalsInterests = ({ goals, interests }) => {
                     obs.observe(el);
                   }}
                 >
-                  <div className="flex items-center gap-2.5 mb-3 text-cyan-400 font-semibold text-base">
+                  <div className="flex items-center gap-2.5 mb-3 text-cyan-600 dark:text-cyan-400 font-semibold text-base">
                     <Sparkles size={18} />
                     <span>{goal.title}</span>
                   </div>
 
                   <ul className="space-y-2.5">
                     {goal.points.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2.5 text-sm text-slate-300">
-                        <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                      <li key={pIdx} className="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300">
+                        <CheckCircle2 size={16} className="text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
                         <span>{pt}</span>
                       </li>
                     ))}
@@ -67,14 +67,14 @@ export const GoalsInterests = ({ goals, interests }) => {
           {/* Right Column: Interests & Hobbies (5 cols) */}
           <div id="interests" className="lg:col-span-5 space-y-6">
             <div ref={interestsHeader.ref} className={`reveal reveal-right ${interestsHeader.isVisible ? 'is-visible' : ''}`}>
-              <div className="flex items-center gap-2 text-cyan-400 font-mono text-sm uppercase tracking-wider mb-2">
+              <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-mono text-sm uppercase tracking-wider mb-2">
                 <Heart size={16} />
                 <span>Kişisel Gelişim</span>
               </div>
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
                 Hobiler & İlgi Alanları
               </h2>
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-600 dark:text-slate-400 text-sm">
                 Kod satırlarının ötesinde bana ilham veren, problem çözme kaslarımı diri tutan tutkularım.
               </p>
             </div>
@@ -98,8 +98,8 @@ export const GoalsInterests = ({ goals, interests }) => {
                     obs.observe(el);
                   }}
                 >
-                  <h3 className="text-sm font-semibold font-mono text-slate-300 mb-3 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                  <h3 className="text-sm font-semibold font-mono text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400"></span>
                     {interestGroup.category}
                   </h3>
 
@@ -107,7 +107,7 @@ export const GoalsInterests = ({ goals, interests }) => {
                     {interestGroup.items.map((item, iIdx) => (
                       <span
                         key={iIdx}
-                        className="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-900 text-slate-200 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 transition-colors cursor-default"
+                        className="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors cursor-default"
                       >
                         {item}
                       </span>

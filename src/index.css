@@ -2,35 +2,368 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════════
+   THEME DESIGN TOKENS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* DARK MODE (Varsayılan) */
+:root {
+  color-scheme: dark;
+
+  --bg-primary:        #090d16;
+  --bg-secondary:      #0d1117;
+  --bg-card:           rgba(22, 27, 34, 0.72);
+  --bg-card-hover:     rgba(30, 41, 59, 0.75);
+  --bg-nav:            rgba(13, 17, 23, 0.80);
+  --bg-footer:         #070a10;
+  --bg-input:          #161b22;
+  --bg-chip:           rgba(15, 23, 42, 0.65);
+
+  --text-primary:      #e2e8f0;
+  --text-heading:      #ffffff;
+  --text-muted:        #94a3b8;
+  --text-faint:        #64748b;
+
+  --border-base:       rgba(255, 255, 255, 0.08);
+  --border-card:       rgba(51, 65, 85, 0.6);
+  --border-card-hover: rgba(56, 189, 248, 0.4);
+
+  --scrollbar-track:   #090d16;
+  --scrollbar-thumb:   #1e293b;
+  --scrollbar-thumb-h: #334155;
+
+  --card-shadow:       0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  --card-shadow-hover: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(56, 189, 248, 0.18);
+}
+
+/* LIGHT MODE */
+html.light {
+  color-scheme: light;
+
+  --bg-primary:        #f8fafc;
+  --bg-secondary:      #ffffff;
+  --bg-card:           rgba(255, 255, 255, 0.95);
+  --bg-card-hover:     #ffffff;
+  --bg-nav:            rgba(255, 255, 255, 0.92);
+  --bg-footer:         #f1f5f9;
+  --bg-input:          #ffffff;
+  --bg-chip:           #f1f5f9;
+
+  --text-primary:      #0f172a; /* Slate 900 */
+  --text-heading:      #020617; /* Slate 950 */
+  --text-muted:        #334155; /* Slate 700 */
+  --text-faint:        #475569; /* Slate 600 */
+
+  --border-base:       rgba(226, 232, 240, 0.9);
+  --border-card:       rgba(226, 232, 240, 0.85);
+  --border-card-hover: rgba(6, 182, 212, 0.45);
+
+  --scrollbar-track:   #f1f5f9;
+  --scrollbar-thumb:   #cbd5e1;
+  --scrollbar-thumb-h: #94a3b8;
+
+  --card-shadow:       0 2px 12px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --card-shadow-hover: 0 12px 28px -6px rgba(15, 23, 42, 0.10), 0 0 16px -3px rgba(6, 182, 212, 0.20);
+}
+
 @layer base {
   body {
-    background-color: #090d16;
-    color: #e2e8f0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
-/* Custom Glassmorphism & Modern Dev aesthetic */
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT MODE: HIGH-CONTRAST TEXT & READABILITY RULES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Headings and bold titles */
+html.light .text-white,
+html.light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+/* Primary paragraph & body text */
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+/* Secondary descriptions, subtitles, dates, locations */
+html.light .text-slate-400 {
+  color: #475569 !important; /* Deep Slate-600: 5.5:1 contrast ratio */
+}
+
+html.light .text-slate-500 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-600 {
+  color: #334155 !important;
+}
+
+/* Accent colors: darkened for crisp visibility on light background */
+html.light .text-cyan-300,
+html.light .text-cyan-400 {
+  color: #0284c7 !important; /* Sky-600 / Cyan-700 */
+}
+
+html.light .text-emerald-300,
+html.light .text-emerald-400 {
+  color: #059669 !important; /* Emerald-600 */
+}
+
+html.light .text-purple-300,
+html.light .text-purple-400 {
+  color: #7c3aed !important; /* Purple-600 */
+}
+
+html.light .text-amber-300,
+html.light .text-amber-400 {
+  color: #d97706 !important; /* Amber-600 */
+}
+
+html.light .text-sky-300,
+html.light .text-sky-400 {
+  color: #0284c7 !important; /* Sky-600 */
+}
+
+html.light .text-blue-300,
+html.light .text-blue-400 {
+  color: #2563eb !important; /* Blue-600 */
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT MODE: SECTION BACKGROUNDS & CARDS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.light section[class*="bg-\[#090d16\]"],
+html.light section.bg-mesh {
+  background-color: var(--bg-primary) !important;
+}
+
+html.light section[class*="bg-\[#0d1117\]"] {
+  background-color: var(--bg-secondary) !important;
+}
+
+html.light footer[class*="bg-\[#070a10\]"] {
+  background-color: var(--bg-footer) !important;
+}
+
+html.light .glass-nav {
+  background: var(--bg-nav) !important;
+  border-bottom-color: var(--border-base) !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light .glass-card:not(.terminal-card) {
+  background: var(--bg-card) !important;
+  border-color: var(--border-card) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+html.light .glass-card:not(.terminal-card):hover {
+  border-color: var(--border-card-hover) !important;
+  box-shadow: var(--card-shadow-hover) !important;
+}
+
+/* Borders in light mode */
+html.light .border-slate-800,
+html.light .border-slate-800\/80,
+html.light .border-slate-800\/60,
+html.light [class*="border-slate-800"] {
+  border-color: rgba(226, 232, 240, 0.9) !important;
+}
+
+html.light .border-slate-700,
+html.light [class*="border-slate-700"] {
+  border-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+/* Logo badge letter A protection across all themes */
+.logo-badge-a {
+  color: #ffffff !important;
+}
+
+/* Navbar navigation items seamless camouflage */
+header nav a,
+header nav button {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+header nav a:hover,
+header nav button:hover {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+html.dark header nav a:hover,
+html.dark header nav button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Skills Category Pastel Colors in Light Mode */
+html.light [class*="bg-purple-950"] { background-color: #f3e8ff !important; }
+html.light [class*="border-purple-800"] { border-color: #d8b4fe !important; }
+html.light [class*="bg-emerald-950"] { background-color: #d1fae5 !important; }
+html.light [class*="border-emerald-800"] { border-color: #a7f3d0 !important; }
+html.light [class*="bg-cyan-950"] { background-color: #ecfeff !important; }
+html.light [class*="border-cyan-800"] { border-color: #a5f3fc !important; }
+html.light [class*="bg-amber-950"] { background-color: #fef3c7 !important; }
+html.light [class*="border-amber-800"] { border-color: #fde68a !important; }
+
+/* Experience Timeline indicator */
+html.light .border-l-2.border-slate-800 {
+  border-color: rgba(6, 182, 212, 0.3) !important;
+}
+
+html.light .relative.group > .rounded-full.border-cyan-400 {
+  background-color: #ffffff !important;
+  border-color: #06b6d4 !important;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.35) !important;
+}
+
+/* Secondary Button (CV button) in Hero */
+html.light a[download].bg-slate-900 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+html.light a[download].bg-slate-900:hover {
+  background-color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Footer CTA Copy Email button */
+html.light footer button.bg-slate-900 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+html.light footer button.bg-slate-900:hover {
+  background-color: #f8fafc !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS WITH SOLID CONTRAST
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Buttons with white text */
+html.light .bg-gradient-to-r.from-cyan-500.to-blue-600,
+html.light .bg-gradient-to-r.from-cyan-500.to-blue-600 *,
+html.light a[href*="mailto"].text-white,
+html.light a[href*="mailto"].text-white * {
+  color: #ffffff !important;
+}
+
+/* Active Nav Link Indicator */
+header nav a.nav-link-active,
+header nav button.nav-link-active {
+  color: #0891b2 !important;
+  font-weight: 600 !important;
+}
+
+html.dark header nav a.nav-link-active,
+html.dark header nav button.nav-link-active {
+  color: #22d3ee !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TERMINAL CARD (Protected Dark IDE Window)
+   ═══════════════════════════════════════════════════════════════ */
+.terminal-card {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.45);
+}
+
+html.light .terminal-card {
+  background: #0d1117 !important;
+  border-color: #30363d !important;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.25) !important;
+}
+
+html.light .terminal-card .bg-\[\#161b22\] {
+  background-color: #161b22 !important;
+}
+
+html.light .terminal-card .bg-\[\#0d1117\] {
+  background-color: #0d1117 !important;
+}
+
+html.light .terminal-card .border-slate-800 {
+  border-color: #21262d !important;
+}
+
+html.light .terminal-card .text-slate-300 {
+  color: #e6edf3 !important;
+}
+
+html.light .terminal-card .text-slate-400 {
+  color: #8b949e !important;
+}
+
+html.light .terminal-card .text-slate-500 {
+  color: #6e7681 !important;
+}
+
+html.light .terminal-card .text-purple-400 {
+  color: #d2a8ff !important;
+}
+
+html.light .terminal-card .text-yellow-300 {
+  color: #f1e05a !important;
+}
+
+html.light .terminal-card .text-emerald-300,
+html.light .terminal-card .text-emerald-400 {
+  color: #7ee787 !important;
+}
+
+html.light .terminal-card .text-sky-400 {
+  color: #79c0ff !important;
+}
+
+html.light .terminal-card .text-blue-400 {
+  color: #58a6ff !important;
+}
+
+html.light .terminal-card .text-rose-400 {
+  color: #ff7b72 !important;
+}
+
+html.light .terminal-card .text-amber-300 {
+  color: #e3b341 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CORE GLASS & BACKDROP STYLES
+   ═══════════════════════════════════════════════════════════════ */
 .glass-nav {
-  background: rgba(13, 17, 23, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-nav);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-base);
 }
 
 .glass-card {
-  background: rgba(22, 27, 34, 0.7);
+  background: var(--bg-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-card);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(56, 189, 248, 0.15);
 }
 
 /* GitHub Contribution Box Styling */
@@ -42,15 +375,20 @@
 
 /* Subtle glowing backdrop */
 .bg-mesh {
-  background-image: 
+  background-image:
     radial-gradient(at 15% 15%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
     radial-gradient(at 85% 20%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
     radial-gradient(at 50% 80%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
 }
 
-/* ── Scroll Reveal Animations ─────────────────────────────────────── */
+html.light .bg-mesh {
+  background-image:
+    radial-gradient(at 15% 15%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+    radial-gradient(at 85% 20%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(168, 85, 247, 0.05) 0px, transparent 50%);
+}
 
-/* Başlangıç durumları – elemanlar görünmez & dönüştürülmüş */
+/* ── Scroll Reveal Animations ─────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transition:
@@ -59,20 +397,17 @@
   will-change: opacity, transform;
 }
 
-/* Yön varyantları */
 .reveal-up    { transform: translateY(40px); }
 .reveal-down  { transform: translateY(-30px); }
 .reveal-left  { transform: translateX(-40px); }
 .reveal-right { transform: translateX(40px); }
 .reveal-scale { transform: scale(0.92); }
 
-/* Görünür hale gelince sıfırla */
 .reveal.is-visible {
   opacity: 1;
   transform: translate(0, 0) scale(1);
 }
 
-/* Stagger delay yardımcıları */
 .reveal-delay-100 { transition-delay: 100ms; }
 .reveal-delay-150 { transition-delay: 150ms; }
 .reveal-delay-200 { transition-delay: 200ms; }
@@ -82,16 +417,50 @@
 .reveal-delay-600 { transition-delay: 600ms; }
 
 /* Custom smooth scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track   { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb   { background: var(--scrollbar-thumb); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-h); }
+
+/* ── AhmetAI & Interactive Widget Animations ────────────────────── */
+@keyframes bounceSubtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
-::-webkit-scrollbar-track {
-  background: #090d16;
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 3s ease-in-out infinite;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+
+.animate-scale-up {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.4);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.7);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

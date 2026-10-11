@@ -14,6 +14,7 @@ export const portfolioData = {
     linkedinUrl: "https://www.linkedin.com/in/ahmet-kayar-77a308290/",
     instagramUrl: "https://www.instagram.com/akayarr_/",
     xUrl: "https://x.com/akayar_0",
+    spotifyUrl: "https://open.spotify.com/user/31wbkywm7snicje36327fcndejfe?si=12f308d856154eee",
     cvUrl: "/cv/Ahmet_Kayar_CV.pdf", // CV dosyasının linki
     avatarUrl: "/profile.jpg", // Kendi fotoğrafınızı değiştirmek için public/profile.jpg dosyasını değiştirebilirsiniz
     bio: "Bilgisayar Mühendisliği son sınıf öğrencisiyim. Derin öğrenme, LLM & RAG mimarileri ve modern yazılım ekosisteminde ölçeklenebilir uygulamalar geliştirme tutkusuna sahibim.",

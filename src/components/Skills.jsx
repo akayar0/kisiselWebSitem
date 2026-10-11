@@ -46,14 +46,14 @@ export const Skills = ({ skills }) => {
         
         {/* Header */}
         <div ref={header.ref} className={`reveal reveal-up ${header.isVisible ? 'is-visible' : ''}`}>
-          <div className="flex items-center gap-2 text-cyan-400 font-mono text-sm uppercase tracking-wider mb-2">
+          <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-mono text-sm uppercase tracking-wider mb-2">
             <Terminal size={16} />
             <span>Teknoloji Yığını & Araçlar</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
             Teknik Yetkinlikler
           </h2>
-          <p className="text-slate-400 max-w-2xl text-base mb-12">
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-base mb-12">
             Geliştirme süreçlerimde aktif olarak kullandığım kütüphaneler, diller ve modern mühendislik araçları.
           </p>
         </div>
@@ -84,7 +84,7 @@ export const Skills = ({ skills }) => {
                   <div className={`p-2.5 rounded-xl ${cat.bgColor} ${cat.color} border ${cat.borderColor}`}>
                     <Icon size={20} />
                   </div>
-                  <h3 className="text-lg font-bold text-white">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {cat.title}
                   </h3>
                 </div>
@@ -93,13 +93,13 @@ export const Skills = ({ skills }) => {
                   {cat.items.map((skill, sIdx) => (
                     <div
                       key={sIdx}
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/60 hover:border-slate-700 transition-colors"
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
                     >
-                      <div className="flex items-center gap-2 text-sm text-slate-200 font-medium">
+                      <div className="flex items-center gap-2 text-sm text-slate-800 dark:text-slate-200 font-medium">
                         <CheckCircle size={14} className={cat.color} />
                         <span>{skill.name}</span>
                       </div>
-                      <span className="text-xs font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded">
+                      <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-200/70 dark:bg-slate-800/80 px-2 py-0.5 rounded">
                         {skill.level}
                       </span>
                     </div>
