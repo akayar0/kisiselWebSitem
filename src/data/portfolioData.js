@@ -166,12 +166,24 @@ export const portfolioData = {
 
   goals: [
     {
+      title: "Aktif Üzerinde Çalıştığım Projeler",
+      icon: "Target",
+      points: [
+        "FULL-STACK TAKIM PROJESİ: 4 kişilik bir ekiple Airbnb benzeri, uçtan uca otel ve konut rezervasyon takip sistemi geliştirmek.",
+        "VERİ MADENCİLİĞİ PROJESİ: Büyük ölçekli veri setlerini temizleme, özellik mühendisliği ve kümeleme/sınıflandırma algoritmalarıyla analiz ederek karar destek mekanizmaları üretmek.",
+        "BİTİRME PROJESİ: ESP32 tabanlı RAG destekli sesli yapay zekâ asistanı prototipini Ar-Ge aşamasından çıkarıp pazara hazır, ticarileşebilir bir donanım/yazılım ürününe dönüştürmek."
+      
+      ]
+    },
+
+    {
       title: "Kısa Vade (İlk 1-2 Yıl)",
       icon: "Target",
       points: [
-        "Full-stack alanında ileri seviyede olmak",
-        "Açık kaynaklı LLM araçlarına (LangChain, vLLM vb.) düzenli pull request katkıları sunmak",
-        "Güncel yapay zeka araçlarını kullanarak vizyonlu projeler üretmek"
+        "Full-stack alanında ileri seviyede olmak.",
+        "Açık kaynaklı LLM araçlarına (LangChain, vLLM vb.) düzenli pull request katkıları sunmak.",
+        "Güncel yapay zeka araçlarını kullanarak vizyonlu projeler üretmek."
+      
       ]
     },
   ],
