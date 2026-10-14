@@ -65,7 +65,7 @@ export const Skills = ({ skills }) => {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-2xl p-6 border border-slate-800/90 hover:border-slate-700 transition-all"
+                className="glass-card rounded-2xl p-6 group cursor-default"
                 style={{ opacity: 0, transform: 'translateY(36px)' }}
                 ref={el => {
                   if (!el) return;
@@ -75,6 +75,12 @@ export const Skills = ({ skills }) => {
                       el.style.transform = 'translateY(0)';
                       el.style.transition = `opacity 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 120}ms, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 120}ms`;
                       obs.unobserve(el);
+                      setTimeout(() => {
+                        if (el) {
+                          el.style.transform = '';
+                          el.style.transition = '';
+                        }
+                      }, (idx * 120) + 700);
                     }
                   }, { threshold: 0.1 });
                   obs.observe(el);

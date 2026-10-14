@@ -31,7 +31,7 @@ export const GoalsInterests = ({ goals, interests }) => {
               {goals.map((goal, idx) => (
                 <div
                   key={idx}
-                  className="glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-800/80"
+                  className="glass-card rounded-2xl p-6 group cursor-default"
                   style={{ opacity: 0, transform: 'translateX(-36px)' }}
                   ref={el => {
                     if (!el) return;
@@ -41,6 +41,12 @@ export const GoalsInterests = ({ goals, interests }) => {
                         el.style.transform = 'translateX(0)';
                         el.style.transition = `opacity 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 130}ms, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 130}ms`;
                         obs.unobserve(el);
+                        setTimeout(() => {
+                          if (el) {
+                            el.style.transform = '';
+                            el.style.transition = '';
+                          }
+                        }, (idx * 130) + 700);
                       }
                     }, { threshold: 0.1 });
                     obs.observe(el);
@@ -83,7 +89,7 @@ export const GoalsInterests = ({ goals, interests }) => {
               {interests.map((interestGroup, index) => (
                 <div
                   key={index}
-                  className="glass-card rounded-2xl p-5 border border-slate-800/80"
+                  className="glass-card rounded-2xl p-5 cursor-default"
                   style={{ opacity: 0, transform: 'translateX(36px)' }}
                   ref={el => {
                     if (!el) return;
@@ -93,6 +99,12 @@ export const GoalsInterests = ({ goals, interests }) => {
                         el.style.transform = 'translateX(0)';
                         el.style.transition = `opacity 0.65s cubic-bezier(0.22,1,0.36,1) ${index * 110}ms, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${index * 110}ms`;
                         obs.unobserve(el);
+                        setTimeout(() => {
+                          if (el) {
+                            el.style.transform = '';
+                            el.style.transition = '';
+                          }
+                        }, (index * 110) + 700);
                       }
                     }, { threshold: 0.1 });
                     obs.observe(el);

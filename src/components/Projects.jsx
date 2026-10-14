@@ -40,7 +40,7 @@ export const Projects = ({ projects, repoStatsMap = {} }) => {
             return (
               <div
                 key={project.id}
-                className="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800 hover:border-slate-700 group transition-all"
+                className="glass-card rounded-2xl p-6 flex flex-col justify-between group cursor-default"
                 style={{ opacity: 0, transform: 'translateY(32px) scale(0.97)' }}
                 ref={el => {
                   if (!el) return;
@@ -50,6 +50,12 @@ export const Projects = ({ projects, repoStatsMap = {} }) => {
                       el.style.transform = 'translateY(0) scale(1)';
                       el.style.transition = `opacity 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 120}ms, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 120}ms`;
                       obs.unobserve(el);
+                      setTimeout(() => {
+                        if (el) {
+                          el.style.transform = '';
+                          el.style.transition = '';
+                        }
+                      }, (idx * 120) + 700);
                     }
                   }, { threshold: 0.08 });
                   obs.observe(el);

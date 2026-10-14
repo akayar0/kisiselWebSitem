@@ -77,9 +77,9 @@ export const About = ({ about, personal }) => {
           <div className="lg:col-span-5 space-y-5">
             
             {/* Profil Resmi Kartı (Üstte) */}
-            <div ref={profileCard.ref} className={`glass-card p-6 rounded-2xl border border-slate-800 relative overflow-hidden group reveal reveal-right ${profileCard.isVisible ? 'is-visible' : ''}`}>
+            <div ref={profileCard.ref} className={`glass-card p-6 rounded-2xl relative overflow-hidden group reveal reveal-right ${profileCard.isVisible ? 'is-visible' : ''}`}>
               {/* Arka plan ambient ışık */}
-              <div className="absolute top-0 right-0 w-36 h-36 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+              <div className="absolute top-0 right-0 w-36 h-36 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
               {/* Üst Rozet / Başlık */}
               <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-800/80">
@@ -136,7 +136,7 @@ export const About = ({ about, personal }) => {
             </div>
 
             {/* Eğitim & Detaylar Kartı (Altta) */}
-            <div ref={eduCard.ref} className={`glass-card p-6 rounded-2xl border border-slate-800 reveal reveal-right ${eduCard.isVisible ? 'is-visible' : ''}`}>
+            <div ref={eduCard.ref} className={`glass-card p-6 rounded-2xl reveal reveal-right ${eduCard.isVisible ? 'is-visible' : ''}`}>
               <div className="flex items-center gap-3 pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-600/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                   <GraduationCap size={22} />

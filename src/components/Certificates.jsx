@@ -28,7 +28,7 @@ export const Certificates = ({ certificates }) => {
           {certificates.map((cert, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-slate-700 transition-all"
+              className="glass-card rounded-2xl p-6 flex flex-col justify-between group cursor-default"
               style={{ opacity: 0, transform: 'translateY(32px)' }}
               ref={el => {
                 if (!el) return;
@@ -38,6 +38,12 @@ export const Certificates = ({ certificates }) => {
                     el.style.transform = 'translateY(0)';
                     el.style.transition = `opacity 0.65s cubic-bezier(0.22,1,0.36,1) ${index * 100}ms, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${index * 100}ms`;
                     obs.unobserve(el);
+                    setTimeout(() => {
+                      if (el) {
+                        el.style.transform = '';
+                        el.style.transition = '';
+                      }
+                    }, (index * 100) + 700);
                   }
                 }, { threshold: 0.08 });
                 obs.observe(el);

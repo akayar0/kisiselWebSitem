@@ -19,7 +19,7 @@ export const Footer = ({ personal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Contact CTA Banner */}
-        <div className="glass-card rounded-3xl p-8 sm:p-12 mb-16 border border-slate-800/80 text-center relative overflow-hidden">
+        <div className="glass-card rounded-3xl p-8 sm:p-12 mb-16 text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
           
           <span className="inline-block px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/50 text-xs font-mono mb-4">
